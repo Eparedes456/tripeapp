@@ -5,6 +5,69 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    destinos(String url, String nombre,String ciudad){
+      return Padding(
+                        padding:  EdgeInsets.only(left: 10),
+                        child: Stack(
+                          children: [
+
+                          Container(
+                          height: MediaQuery.of(context).size.height * 0.27,
+                          width: 200,
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.circular(15),
+                            image: DecorationImage(
+                              image: NetworkImage(url),
+                              fit: BoxFit.cover
+                            ),
+                            
+                          ),
+                          child: Padding(
+                            padding:  EdgeInsets.only(left: 20,right: 20),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  nombre,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 18
+                                  ),
+                                ),
+                                SizedBox(height: 5,),
+                                Text(ciudad,style: TextStyle(color: Colors.white),),
+                                SizedBox(height: 20,)
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        /*Container(
+                          height: MediaQuery.of(context).size.height * 0.20,
+                          width: 200,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomCenter,
+                              colors: [
+                               
+                                Colors.black38,
+                                Colors.black45
+                              ]
+                            )
+                          ),
+                        )*/
+
+                          ],
+                        )
+                        
+                      );
+    }
+
     return Scaffold(
       backgroundColor: Colors.grey[100],
       body: Container(
@@ -13,12 +76,13 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: 12,),
               SafeArea(
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.06,
                   //color: Colors.blue,
                   child: Padding(
-                    padding:  EdgeInsets.only(left: 20,right: 20),
+                    padding:  EdgeInsets.only(left: 10,right: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -51,7 +115,7 @@ class HomePage extends StatelessWidget {
               ),
               
               Padding(
-                padding:  EdgeInsets.only(left: 20,right: 20),
+                padding:  EdgeInsets.only(left: 10,right: 10),
                 child: Container(
                   height: 60,
                   width: double.infinity,
@@ -61,7 +125,7 @@ class HomePage extends StatelessWidget {
                     ),
                     elevation: 1,
                     child: Padding(
-                      padding:  EdgeInsets.only(left: 20,right: 20),
+                      padding:  EdgeInsets.only(left: 10,right: 20),
                       child: Row(
                         children: [
                           Icon(Icons.search, color: Colors.grey,),
@@ -86,7 +150,7 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height: 20,),
               Container(
-                height: MediaQuery.of(context).size.height * 0.1,
+                height: MediaQuery.of(context).size.height * 0.14,
                 //color: Colors.black,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -185,15 +249,45 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height:20,),
               Padding(
-                padding: const EdgeInsets.only(left: 20,right: 20),
+                padding: const EdgeInsets.only(left: 10,right: 20),
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.3,
                   //color: Colors.black54,
-                  child: ListView.builder(
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+
+                      destinos(
+                        'https://turismoi.pe/uploads/photo/version2/photo_file/40688/optimized_reui.jpg', 
+                        'Cataratas de Ahuashiyacu',
+                        'Tarapoto'
+                      ),
+
+                      destinos(
+                        'https://sumaqllatravelperu.com/wp-content/uploads/2021/07/LAGUNA-AZUL-2.jpg', 
+                        'Laguna Azul',
+                        'Sauce'
+                      ),
+
+                      destinos(
+                        'https://www.avis.com.pe/blog/wp-content/uploads/2019/04/RIO-TIOYACU-EN-RIOJA-San-Martin-1.jpg', 
+                        'Tioyacu',
+                        'Rioja'
+                      ),
+
+                      destinos(
+                        'https://www.raptravelperu.com/wp-content/uploads/moyobamba.jpg', 
+                        'Plaza de Armas',
+                        'Moyobamba'
+                      )
+                    ],
+                  )
+                  
+                  /*ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: 5,
-                    itemBuilder: (context,i){
-                      return Padding(
+                    itemBuilder: (context,i){*/
+                      /*return Padding(
                         padding:  EdgeInsets.only(left: 10),
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.20,
@@ -201,7 +295,10 @@ class HomePage extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: Colors.blue,
                             borderRadius: BorderRadius.circular(15),
-                            
+                            image: DecorationImage(
+                              image: NetworkImage('https://turismoalperu.com/wp-content/uploads/2019/11/Morro-de-Calzada.jpg'),
+                              fit: BoxFit.cover
+                            )
                           ),
                           child: Padding(
                             padding:  EdgeInsets.only(left: 20,right: 20),
@@ -224,12 +321,12 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                         ),
-                      );
-                    }
+                      );*/
+                    //}
                   ),
                 ),
-              ),
-              SizedBox(height:20,),
+              
+              //SizedBox(height:20,),
               Padding(
                 padding:  EdgeInsets.only(left: 20,right: 20),
                 child: Text(
@@ -240,7 +337,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height:20,),
+              SizedBox(height:10,),
               Padding(
                 padding: const EdgeInsets.only(left: 10,),
                 child: Container(
@@ -421,3 +518,4 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
