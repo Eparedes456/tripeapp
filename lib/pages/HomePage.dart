@@ -46,26 +46,152 @@ class HomePage extends StatelessWidget {
                           ),
                         ),
 
-                        /*Container(
-                          height: MediaQuery.of(context).size.height * 0.20,
-                          width: 200,
-                          decoration: BoxDecoration(
+                         Container(
+                           
+                           height: MediaQuery.of(context).size.height * 0.27,
+                           width: 200,
+                           decoration: BoxDecoration(
+                            //color: Colors.black26,
+                            borderRadius: BorderRadius.circular(15),
                             gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
                               colors: [
-                               
-                                Colors.black38,
-                                Colors.black45
+                                Colors.black26,
+                                Colors.black12,
+                                Colors.transparent
                               ]
                             )
+                            
                           ),
-                        )*/
 
+                         )
                           ],
                         )
                         
                       );
+    }
+
+
+    hoteles(String urlHotel, String nombreHotel, String ubicaion, String puntaje){
+      return Padding(
+                        padding:  EdgeInsets.only(left: 0),
+                        child: Container(
+                          height: MediaQuery.of(context).size.height / 1.7,  //* 0.08,
+                          width: MediaQuery.of(context).size.width / 1.2,
+                          
+                          child: Card(
+                            elevation: 2,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)
+                            ),
+                            child: Padding(
+                              padding:  EdgeInsets.only(left: 8,right: 8),
+                              
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      height: MediaQuery.of(context).size.height * 0.15,
+                                      width: MediaQuery.of(context).size.width  / 4,
+                                      decoration: BoxDecoration(
+                                        color: Colors.black,
+                                        borderRadius: BorderRadius.circular(15),
+                                        image: DecorationImage(
+                                          image: NetworkImage(urlHotel),
+                                          fit: BoxFit.cover
+                                        )
+                                      ),
+                                    ),
+                                    Expanded(
+                                  child: Padding(
+                                    padding:  EdgeInsets.only(left: 12,top: 8),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          nombreHotel,
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold
+                                          ),
+                                        ),
+                                        SizedBox(height: 5,),
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Expanded(
+                                              child: Padding(
+                                                padding:  EdgeInsets.only(right: 10),
+                                                child: Row(
+                                                  children: [
+                                                    Icon(Icons.pin_drop,size: 14,color: Color.fromRGBO(37, 117, 255, 1),),
+                                                    SizedBox(width: 5,),
+                                                    Text(ubicaion),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                            
+                                            //SizedBox(width: 20,),
+                                            /*Expanded(
+                                              child: Row(
+                                                  children: [
+                                                    Icon(Icons.star,size: 14,color: Color.fromRGBO(37, 117, 255, 1),),
+                                                    SizedBox(width: 5,),
+                                                    Text(puntaje),
+                                                
+                                                  ],
+                                                ),
+                                            ),*/
+                                            
+                                            
+                                          ],
+                                        ),
+                                        Row(
+                                                  children: [
+                                                    Icon(Icons.star,size: 14,color: Color.fromRGBO(37, 117, 255, 1),),
+                                                    SizedBox(width: 5,),
+                                                    Text(puntaje),
+                                                
+                                                  ],
+                                                ),
+                                        //SizedBox(height: 5,),
+               
+                                        Padding(
+                                          padding: const EdgeInsets.only(top: 8,right: 10),
+                                          child: Container(
+                                            width: MediaQuery.of(context).size.width / 3,
+                                            decoration: BoxDecoration(
+                                              color: Color.fromRGBO(41, 194, 194, 1),
+                                              borderRadius: BorderRadius.circular(8)
+                                            ),
+                                            height: MediaQuery.of(context).size.height * 0.040 ,
+                                            child: Center(
+                                              child: Text(
+                                                '¡Reserva ahora!',
+                                                style: TextStyle(
+                                                  color:Colors.white,
+                                                  fontWeight: FontWeight.bold
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+
+
+                                  ],
+                                ),
+                              
+                            ),
+                          ),
+                        ),
+                      ); 
+
     }
 
     return Scaffold(
@@ -249,7 +375,7 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(height:20,),
               Padding(
-                padding: const EdgeInsets.only(left: 10,right: 20),
+                padding: const EdgeInsets.only(left: 10,right: 0),
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.3,
                   //color: Colors.black54,
@@ -283,46 +409,7 @@ class HomePage extends StatelessWidget {
                     ],
                   )
                   
-                  /*ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 5,
-                    itemBuilder: (context,i){*/
-                      /*return Padding(
-                        padding:  EdgeInsets.only(left: 10),
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.20,
-                          width: 200,
-                          decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                              image: NetworkImage('https://turismoalperu.com/wp-content/uploads/2019/11/Morro-de-Calzada.jpg'),
-                              fit: BoxFit.cover
-                            )
-                          ),
-                          child: Padding(
-                            padding:  EdgeInsets.only(left: 20,right: 20),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Destino $i',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                    fontSize: 18
-                                  ),
-                                ),
-                                SizedBox(height: 5,),
-                                Text('Ciudad',style: TextStyle(color: Colors.white),),
-                                SizedBox(height: 20,)
-                              ],
-                            ),
-                          ),
-                        ),
-                      );*/
-                    //}
+                  
                   ),
                 ),
               
@@ -337,86 +424,50 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height:10,),
+              SizedBox(height:8,),
               Padding(
                 padding: const EdgeInsets.only(left: 10,),
                 child: Container(
-                  height: MediaQuery.of(context).size.height * 0.18,
+                  height: MediaQuery.of(context).size.height * 0.2,
                   //color: Colors.black54,
-                  child: ListView.builder(
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      hoteles(
+                        'https://thumbnails.trvl-media.com/fCddJ4zkwxrszfm9ZdNCProGAGs=/773x530/smart/filters:quality(60)/images.trvl-media.com/hotels/6000000/5230000/5227800/5227726/689551a5_z.jpg',
+                        'Hotel Rio Cumbaza',
+                        'Tarapoto',
+                        '4.6',
+                      ),
+                      hoteles(
+                        'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_450,q_auto,w_450/itemimages/28/28/2828130_v1.jpeg',
+                        'Hotel Tucan Suites Apart',
+                        'Banda de Shilcayo',
+                        '5'
+                      ),
+                      hoteles(
+                        'https://exp.cdn-hotels.com/hotels/59000000/58740000/58732500/58732477/553a058c_z.jpg?impolicy=fcrop&w=500&h=333&q=medium',
+                        'Hotel Marco Antonio',
+                        'Moyobamba',
+                        '4.8'
+                      ),
+                      hoteles(
+                        'https://saucelagunaazul.com/wp-content/uploads/2019/11/el-lugar-perfecto.jpg',
+                        'Hotel Las Hamacas',
+                        'Sauce',
+                        '5'
+                      )
+                    ],
+                  )
+
+
+                  /*ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: 5,
                     itemBuilder: (context,i){
-                      return Padding(
-                        padding:  EdgeInsets.only(left: 10),
-                        child: Container(
-                          height: MediaQuery.of(context).size.height / 1.7,  //* 0.08,
-                          width: MediaQuery.of(context).size.width / 1.2,
-                          /*decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(15),
-                            
-                          ),*/
-                          child: Card(
-                            elevation: 2,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)
-                            ),
-                            child: Padding(
-                              padding:  EdgeInsets.only(left: 10,right: 10),
-                              
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      height: 100,
-                                      width: 100,
-                                      decoration: BoxDecoration(
-                                        color: Colors.black,
-                                        borderRadius: BorderRadius.circular(15)
-                                      ),
-                                    ),
-                                    Expanded(
-                                  child: Padding(
-                                    padding:  EdgeInsets.only(left: 8,top: 8),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Text('Rustica Hotelsdsdasdasdasdasdasdasda'),
-                                        
-                                        Text('ciudad del hotel'),
-                                        
-                                        Text('Calificación'),
-  
-                                        Padding(
-                                          padding: const EdgeInsets.only(top: 12,right: 10),
-                                          child: Container(
-                                            width: double.infinity,
-                                            decoration: BoxDecoration(
-                                              color: Colors.blue,
-                                              borderRadius: BorderRadius.circular(20)
-                                            ),
-                                            height: 45,
-                                            child: Center(
-                                              child: Text('¡Reserva ahora!'),
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-
-
-                                  ],
-                                ),
-                              
-                            ),
-                          ),
-                        ),
-                      );
+                      return
                     }
-                  ),
+                  ),*/
                 ),
               ),
 
